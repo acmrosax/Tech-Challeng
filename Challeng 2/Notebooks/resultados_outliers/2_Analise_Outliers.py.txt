@@ -1,0 +1,116 @@
+2_Analise_Outliers.py"
+======================================================================
+ANÁLISE DE POSSÍVEIS OUTLIERS — BASE WINEQT
+======================================================================
+Quantidade de registros: 1143
+Quantidade de colunas: 13
+
+Variável: fixed acidity
+  Q1: 7.1000
+  Q3: 9.1000
+  IQR: 2.0000
+  Limite inferior: 4.1000
+  Limite superior: 12.1000
+  Possíveis outliers: 44 (3.85%)
+
+Variável: volatile acidity
+  Q1: 0.3925
+  Q3: 0.6400
+  IQR: 0.2475
+  Limite inferior: 0.0213
+  Limite superior: 1.0112
+  Possíveis outliers: 14 (1.22%)
+
+Variável: citric acid
+  Q1: 0.0900
+  Q3: 0.4200
+  IQR: 0.3300
+  Limite inferior: -0.4050
+  Limite superior: 0.9150
+  Possíveis outliers: 1 (0.09%)
+
+Variável: residual sugar
+  Q1: 1.9000
+  Q3: 2.6000
+  IQR: 0.7000
+  Limite inferior: 0.8500
+  Limite superior: 3.6500
+  Possíveis outliers: 110 (9.62%)
+
+Variável: chlorides
+  Q1: 0.0700
+  Q3: 0.0900
+  IQR: 0.0200
+  Limite inferior: 0.0400
+  Limite superior: 0.1200
+  Possíveis outliers: 77 (6.74%)
+
+Variável: free sulfur dioxide
+  Q1: 7.0000
+  Q3: 21.0000
+  IQR: 14.0000
+  Limite inferior: -14.0000
+  Limite superior: 42.0000
+  Possíveis outliers: 18 (1.57%)
+
+Variável: total sulfur dioxide
+  Q1: 21.0000
+  Q3: 61.0000
+  IQR: 40.0000
+  Limite inferior: -39.0000
+  Limite superior: 121.0000
+  Possíveis outliers: 40 (3.50%)
+
+Variável: density
+  Q1: 0.9956
+  Q3: 0.9978
+  IQR: 0.0023
+  Limite inferior: 0.9922
+  Limite superior: 1.0013
+  Possíveis outliers: 36 (3.15%)
+
+Variável: pH
+  Q1: 3.2050
+  Q3: 3.4000
+  IQR: 0.1950
+  Limite inferior: 2.9125
+  Limite superior: 3.6925
+  Possíveis outliers: 20 (1.75%)
+
+Variável: sulphates
+  Q1: 0.5500
+  Q3: 0.7300
+  IQR: 0.1800
+  Limite inferior: 0.2800
+  Limite superior: 1.0000
+  Possíveis outliers: 43 (3.76%)
+
+Variável: alcohol
+  Q1: 9.5000
+  Q3: 11.1000
+  IQR: 1.6000
+  Limite inferior: 7.1000
+  Limite superior: 13.5000
+  Possíveis outliers: 12 (1.05%)
+\n======================================================================
+RESUMO DA ANÁLISE DE OUTLIERS
+======================================================================
+            variavel  quantidade_possiveis_outliers percentual_possiveis_outliers
+      residual sugar                            110                         9.62%
+           chlorides                             77                         6.74%
+       fixed acidity                             44                         3.85%
+           sulphates                             43                         3.76%
+total sulfur dioxide                             40                         3.50%
+             density                             36                         3.15%
+                  pH                             20                         1.75%
+ free sulfur dioxide                             18                         1.57%
+    volatile acidity                             14                         1.22%
+             alcohol                             12                         1.05%
+         citric acid                              1                         0.09%
+\nNenhum dado foi removido ou alterado.
+Tabela CSV salva em: C:\Users\Aname\OneDrive\Desktop\Tech Challeng\Challeng 2\Notebooks\resultados_outliers\resumo_outliers.csv
+Gráficos salvos na pasta: C:\Users\Aname\OneDrive\Desktop\Tech Challeng\Challeng 2\Notebooks\resultados_outliers
+Novos gráficos comparativos:
+- comparacao_outliers_barras.png
+- percentual_outliers_barras.png
+Também foram salvos boxplots individuais para cada variável.
