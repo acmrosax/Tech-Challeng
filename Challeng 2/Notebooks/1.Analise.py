@@ -5,13 +5,17 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+from pathlib import Path
 
 # ==================================================
 # 2. LEITURA DA BASE
 # ==================================================
 
-df = pd.read_csv('C:/Users/Aname/OneDrive/Desktop/Tech Challeng/Challeng 2/vinho-tech-challenge/WineQT.csv')
+# df = pd.read_csv('C:/Users/Aname/OneDrive/Desktop/Tech Challeng/Challeng 2/vinho-tech-challenge/WineQT.csv')
+BASE_DIR = Path(__file__).resolve().parent.parent
+CAMINHO_DADOS = BASE_DIR / "vinho-tech-challenge" / "WineQT.csv"
+
+df = pd.read_csv(CAMINHO_DADOS)
 
 print("\n===== ESTRUTURA DA BASE =====")
 
