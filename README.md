@@ -42,6 +42,10 @@ Documentações/
 ├── WineQT-Tech-Challenge-FIAP_T1_1.pdf
 └── Link da apresentação executiva.txt
 
+Gravação/
+├── Apresentação Tech Challenge II.1.mp4
+└── Link da apresentação executiva.txt
+
 README.md
 requirements.txt
 ```
