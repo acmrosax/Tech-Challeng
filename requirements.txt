@@ -1,5 +1,11 @@
-Dependências do Tech Challenge — Classificação da Qualidade de Vinhos
+# Dependências do Tech Challenge — Classificação da Qualidade de Vinhos
+# Instalação: python -m pip install -r requirements.txt
 
-Instale com: python -m pip install -r requirements.txt
-
-pandas numpy matplotlib seaborn scikit-learn joblib jupyter ipykernel
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+joblib
+jupyter
+ipykernel
