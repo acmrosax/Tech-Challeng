@@ -2,23 +2,55 @@
 
 ## Sobre o projeto
 
-Este projeto utiliza dados físico-químicos da base WineQT para analisar e classificar a qualidade de vinhos por meio de técnicas de análise de dados e Machine Learning.
+Projeto desenvolvido para o Tech Challenge da FIAP com o objetivo de analisar dados físico-químicos de vinhos e construir modelos de Machine Learning para classificar sua qualidade.
+
+A base utilizada é a **WineQT**. A variável-alvo foi definida como:
+
+- **1 — Alta qualidade:** nota `quality >= 7`
+- **0 — Baixa/média qualidade:** nota `quality < 7`
 
 O trabalho está organizado em três etapas: análise exploratória, preparação dos dados e modelagem.
 
 ## Estrutura do repositório
 
-- `Challeng 2/`: análise exploratória, análise de outliers e base WineQT.
-- `Etapa3/`: preparação dos dados, notebook, relatório e artefatos gerados.
-- `Etapa 4/`: notebook de Machine Learning, relatório e conjuntos de treino e teste.
+```text
+01_Analise_Exploratoria/
+├── Notebooks/
+│   ├── 1.Analise.py
+│   ├── 2_Analise_Outliers.py
+│   ├── analise.ipynb
+│   ├── resultados_analises/
+│   └── resultados_outliers/
+└── vinho-tech-challenge/
+    └── WineQT.csv
+
+02_Preparacao_Dos_Dados/
+├── Etapa3_Preparacao.ipynb
+├── Relatorio_Etapa3_Preparacao_WineQT.pdf
+└── dados_preparados/
+
+03_Machine_Learning/
+├── Etapa4_Machine_Learning_WineQT.ipynb
+├── Relatorio_Machine_Learning_WineQT.docx
+└── arquivos CSV de treino e teste
+
+Documentações/
+├── Documentacao_Completa_Tech_Challenge_WineQT.pdf
+├── POSTECH - DTAT - Tech Challenge - Fase 2.pdf
+├── Relatorio_Etapa3_Preparacao_WineQT.pdf
+├── Relatorio_Machine_Learning_WineQT.docx
+├── WineQT-Tech-Challenge-FIAP_T1_1.pdf
+└── Link da apresentação executiva.txt
+
+README.md
+requirements.txt
+```
 
 ## Tecnologias utilizadas
 
 - Python
-- pandas
-- NumPy
-- Matplotlib
-- Seaborn
+- pandas e NumPy
+- Matplotlib e Seaborn
 - scikit-learn
 - joblib
 - Jupyter Notebook
@@ -27,91 +59,94 @@ O trabalho está organizado em três etapas: análise exploratória, preparaçã
 
 Recomenda-se utilizar um ambiente virtual.
 
-**Criar o ambiente:**
+**1. Criar o ambiente virtual:**
 
 ```bash
 python -m venv .venv
 ```
 
-**Ativar no Windows (PowerShell):**
+**2. Ativar no Windows (PowerShell):**
 
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
 
-**Instalar as dependências:**
+**3. Instalar as dependências na raiz do repositório:**
 
 ```bash
-python -m pip install pandas numpy matplotlib seaborn scikit-learn joblib jupyter ipykernel
+python -m pip install -r requirements.txt
 ```
 
 ## Etapa 2 — Análise exploratória
 
-Pasta: `Challeng 2/Notebooks/`
+Pasta: `01_Analise_Exploratoria/Notebooks/`
 
-Principais atividades:
-- Análise da estrutura e das características da base.
-- Estatísticas descritivas.
-- Distribuição das notas de qualidade.
-- Análise de correlação entre variáveis.
-- Investigação de possíveis outliers pelo método IQR.
+A análise exploratória investiga a estrutura e a qualidade dos dados, incluindo:
 
-Scripts principais:
+- Estatísticas descritivas e distribuição das variáveis;
+- Distribuição das notas de qualidade;
+- Relações e correlações entre características físico-químicas;
+- Identificação e análise de possíveis outliers pelo método IQR.
 
+Arquivos principais:
+
+- `analise.ipynb`
 - `1.Analise.py`
 - `2_Analise_Outliers.py`
 
-A base utilizada está em `Challeng 2/vinho-tech-challenge/WineQT.csv`.
+A base original está em:
 
-Para executar os scripts a partir da raiz:
+`01_Analise_Exploratoria/vinho-tech-challenge/WineQT.csv`
+
+Os scripts Python podem ser executados a partir da raiz do repositório:
 
 ```bash
-python "Challeng 2/Notebooks/1.Analise.py"
-python "Challeng 2/Notebooks/2_Analise_Outliers.py"
+python "01_Analise_Exploratoria/Notebooks/1.Analise.py"
+python "01_Analise_Exploratoria/Notebooks/2_Analise_Outliers.py"
 ```
 
 ## Etapa 3 — Preparação dos dados
 
-Notebook: `Etapa3/Etapa3_Preparacao.ipynb`
+Notebook: `02_Preparacao_Dos_Dados/Etapa3_Preparacao.ipynb`
 
 Nesta etapa são realizadas:
-- Definição da variável-alvo `quality_class`.
-- Verificação de valores ausentes e duplicatas.
-- Separação entre variáveis preditoras e variável-alvo.
-- Divisão estratificada entre treino e teste.
-- Padronização dos dados sem vazamento de informações.
-- Exportação dos artefatos para `Etapa3/dados_preparados/`.
 
-Abra o notebook no Jupyter ou VS Code e execute as células em ordem. Ele reconhece a execução a partir da raiz do repositório ou da pasta `Etapa3`.
+- Definição da variável-alvo `quality_class`;
+- Verificação de valores ausentes, duplicatas e inconsistências;
+- Separação das variáveis preditoras (`X`) e do alvo (`y`);
+- Divisão estratificada em treino e teste;
+- Análise de outliers, sem remoção automática dos registros;
+- Padronização com `StandardScaler`, ajustado somente nos dados de treino;
+- Exportação dos conjuntos e demais artefatos para `02_Preparacao_Dos_Dados/dados_preparados/`.
+
+O notebook localiza automaticamente a raiz do repositório e o arquivo `WineQT.csv`. Abra-o no Jupyter Notebook ou VS Code e execute as células em ordem.
 
 ## Etapa 4 — Machine Learning
 
-Notebook: `Etapa 4/Etapa4_Machine_Learning_WineQT.ipynb`
+Notebook: `03_Machine_Learning/Etapa4_Machine_Learning_WineQT.ipynb`
 
-Nesta etapa são desenvolvidos e avaliados modelos de classificação.
+Nesta etapa são treinados e avaliados modelos de classificação, incluindo:
 
-O notebook utiliza seis arquivos CSV presentes na própria pasta `Etapa 4`:
+- Regressão Logística, utilizando os dados padronizados;
+- Random Forest, utilizando os dados na escala original;
+- Avaliação por acurácia, precisão, recall, F1-score, ROC-AUC e matriz de confusão;
+- Análise de limiar de decisão e importância das variáveis.
 
-- `X_train.csv`
-- `X_test.csv`
-- `X_train_scaled.csv`
-- `X_test_scaled.csv`
-- `y_train.csv`
-- `y_test.csv`
+Os arquivos CSV utilizados pela Etapa 4 estão versionados na própria pasta `03_Machine_Learning/`. A primeira célula do notebook localiza automaticamente a pasta que contém os seis arquivos de treino e teste.
 
-A primeira célula localiza automaticamente a pasta que contém esses arquivos.
+## Documentação e apresentação
 
-As avaliações incluem métricas como acurácia, precisão, recall e F1-score.
+Os relatórios, a documentação consolidada, o enunciado oficial e a apresentação executiva estão disponíveis na pasta `Documentações/`.
+
+O arquivo `Link da apresentação executiva.txt` contém o endereço do vídeo de apresentação.
 
 ## Reprodutibilidade
 
-- Os dados utilizados nas etapas estão versionados no repositório.
-- Os caminhos foram organizados para reduzir a dependência de diretórios específicos de cada computador.
-- A Etapa 3 utiliza uma semente fixa na divisão entre treino e teste.
-- A padronização é ajustada nos dados de treino, evitando vazamento de dados.
+- A divisão entre treino e teste utiliza uma semente fixa (`random_state=42`).
+- A divisão é estratificada para preservar a proporção das classes.
+- O `StandardScaler` é ajustado somente com os dados de treino.
+- Os notebooks devem ser executados na ordem de suas células, pois há dependência entre etapas e variáveis criadas anteriormente.
 
-## Observações
+## Observação sobre outliers
 
-Os valores identificados pelo método IQR são tratados como possíveis outliers. Isso não significa que sejam erros ou que devam ser removidos automaticamente.
-
-Execute as células dos notebooks na ordem apresentada, pois algumas dependem de variáveis e arquivos gerados anteriormente.
+Os valores sinalizados pelo método IQR são tratados como possíveis outliers. Isso não significa que sejam erros: os registros foram mantidos quando considerados plausíveis, evitando exclusões automáticas que poderiam remover informação relevante.
